@@ -66,4 +66,8 @@ One of the key considerations in our URL Shortener is the handling of duplicate 
    ```
 ## Architecture
 
+- Database : Postgres as main db.
+- Cache : Redis as cache with persistent enabled. (AOF)
+- CDC : AirBytes used as CDC.
+
 ![image](https://github.com/ranjitmahadik/url-shortener/assets/43403528/691620d7-195b-4ff7-962b-0a006c4506ea)
