@@ -43,15 +43,13 @@ public class SnowFlakeIDGeneratorImpl implements IDGenerator {
     }
 
 
-    private Long generateSnowFlakeId() {
+    private synchronized Long generateSnowFlakeId() {
         long currentMillisecond = System.currentTimeMillis();
 
         if (currentMillisecond < previousMillisecond) throw new RuntimeException("Invalid System clock!");
 
         if (currentMillisecond == previousMillisecond) {
-            synchronized (this) {
-                sequenceNumber = (sequenceNumber + 1) & MAX_SEQUENCE_NUMBER;
-            }
+            sequenceNumber = (sequenceNumber + 1) & MAX_SEQUENCE_NUMBER;
             if (sequenceNumber == 0) {
                 try {
                     Thread.sleep(1);
@@ -67,10 +65,7 @@ public class SnowFlakeIDGeneratorImpl implements IDGenerator {
         previousMillisecond = currentMillisecond;
 
 
-        Long id = (currentMillisecond - base) << (MACHINE_ID_BITS + DATA_CENTER_BITS + SEQUENCE_BITS)
-                | (dataCenterId << (MACHINE_ID_BITS + SEQUENCE_BITS))
-                | (nodeId << (SEQUENCE_BITS))
-                | sequenceNumber;
+        Long id = (currentMillisecond - base) << (MACHINE_ID_BITS + DATA_CENTER_BITS + SEQUENCE_BITS) | (dataCenterId << (MACHINE_ID_BITS + SEQUENCE_BITS)) | (nodeId << (SEQUENCE_BITS)) | sequenceNumber;
 
 
         return id;
