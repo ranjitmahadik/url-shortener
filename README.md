@@ -36,6 +36,31 @@ One of the key considerations in our URL Shortener is the handling of duplicate 
       - *Pros:* Distributed and scalable. No need to central server.
       - *Cons:* Limited by the snowflake size.
   
-  **we are going to use Snowflake approach as they are easy to scale and maintain.**
+  **we are going to use Snowflake approach as they are easy to scale, maintain and implement.**
 
 ### How to Setup this Project?
+1. Make sure you are at root path of this project.
+2. Run mvnw clean and install command to generate jar file.
+```
+    ./mvnw clean install
+```
+3. once jar file is created, now just run docker compose up.
+```
+   docker compose up -d
+```
+
+### How to Generate Short Urls?
+- POST Request for generating short urls.
+  
+  ```
+     end-point: 127.0.0.1:8080/v1/api/url/shorten
+     body:   {
+                "fullUrl": "https://www.google.com"
+             }
+  ```
+- GET Request for full url.
+
+   ```
+      end-point: 127.0.0.1:8080/v1/api/url/<short-url-code>
+      eg.  127.0.0.1:8080/v1/api/url/70POGa20
+   ```
