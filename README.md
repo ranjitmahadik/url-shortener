@@ -64,3 +64,6 @@ One of the key considerations in our URL Shortener is the handling of duplicate 
       end-point: 127.0.0.1:8080/v1/api/url/<short-url-code>
       eg.  127.0.0.1:8080/v1/api/url/70POGa20
    ```
+## Architecture
+
+![image](https://github.com/ranjitmahadik/url-shortener/assets/43403528/691620d7-195b-4ff7-962b-0a006c4506ea)
