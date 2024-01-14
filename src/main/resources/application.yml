@@ -4,3 +4,11 @@ snowflake:
   machineId: 2
   dataCenterId: 24
   baseEpoch: 1705172007279
+app:
+  datasource:
+    main:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://localhost:5432/url_shortener_db
+      username: ${POSTGRES_USER:user}
+      password: ${POSTGRES_PASSWORD:user@123}
+      pool-size: 100
