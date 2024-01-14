@@ -1,0 +1,6 @@
+server:
+  port: 8080
+snowflake:
+  machineId: 2
+  dataCenterId: 24
+  baseEpoch: 1705172007279
