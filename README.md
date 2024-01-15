@@ -40,7 +40,12 @@ One of the key considerations in our URL Shortener is the handling of duplicate 
 
 ### How to Setup this Project?
 1. Make sure you are at root path of this project.
-2. Run mvnw clean and install command to generate jar file.
+2. Configure env file from database.
+   ```
+      env file path: ./db/.env
+      To understand format of .env, please refer to ./db/example.env or just copy paste the env varibles from example.env to .env.
+   ```
+4. Run mvnw clean and install command to generate jar file.
 ```
     ./mvnw clean install
 ```
